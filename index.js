@@ -1,10 +1,9 @@
-// TODO: Include packages needed for this application
-const badmath = require('badmath');
-// TODO: Create an array of questions for user input
+// packages needed for this application
+const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown");
+const fs = require("fs");
 
-//Title of my project and sections entitled Description, 
-//Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-
+// array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -28,6 +27,11 @@ const questions = [
     },
     {
         type: 'input',
+        message: 'License:',
+        name: 'license',
+    },
+    {
+        type: 'input',
         message: 'Table of Contents:',
         name: 'contents',
     },
@@ -35,7 +39,7 @@ const questions = [
         type: 'input',
         message: 'installation instructions:',
         name: 'installation',
-        choices: ["Apache License 2.0", "GNU v3.0". "MIT", "BSD 2-Clause", "BSD 3-Clause", "Boost Software 1.0"."NONE"],
+        choices: ["Apache License 2.0", "GNU v3.0", "MIT", "BSD 2-Clause", "BSD 3-Clause", "Boost Software 1.0", "NONE"],
     },
     {
         type: 'input',
@@ -44,18 +48,13 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'License:',
-        name: 'license',
+        message: 'testing',
+        name: 'testing',
     },
     {
         type: 'input',
-        message: 'contribution guidelines:',
-        name: 'contribute',
-    },
-    {
-        type: 'input',
-        message: 'test instructions:',
-        name: 'test',
+        message: 'contribution',
+        name: 'contribution',
     },
     {
         type: 'input',
@@ -66,14 +65,11 @@ const questions = [
 
 console.log("const questions");
 
-// TODO: Create a function to write README file
-const README = `My Github account to view my other project ${questions.username}, to contact me  ${questions.email} from the album ${music.album} is currently playing`;
-
-console.log(songSnippet)
-
-// TODO: Create a function to initialize app
-function init() { }
-
-// Function call to initialize app
+//function to initialize app
+function init() {
+    inquirer.prompt(questions).then(answers => {
+        console.log(generateMarkdown(answers))
+        fs.writeFileSync("README.md", generateMarkdown(answers))
+    })
+}
 init();
-
