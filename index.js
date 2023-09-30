@@ -26,24 +26,19 @@ const questions = [
         name: 'description',
     },
     {
-        type: 'input',
-        message: 'License:',
+        type: 'checkbox',
+        message: 'License',
         name: 'license',
-    },
-    {
-        type: 'input',
-        message: 'Table of Contents:',
-        name: 'contents',
-    },
-    {
-        type: 'input',
-        message: 'installation instructions:',
-        name: 'installation',
         choices: ["Apache License 2.0", "GNU v3.0", "MIT", "BSD 2-Clause", "BSD 3-Clause", "Boost Software 1.0", "NONE"],
     },
     {
         type: 'input',
-        message: 'usage information:',
+        message: 'installation instructions',
+        name: 'installation',
+    },
+    {
+        type: 'input',
+        message: 'usage',
         name: 'usage',
     },
     {
@@ -56,11 +51,7 @@ const questions = [
         message: 'contribution',
         name: 'contribution',
     },
-    {
-        type: 'input',
-        message: 'Questions:',
-        name: 'questions',
-    },
+
 ];
 
 console.log("const questions");
