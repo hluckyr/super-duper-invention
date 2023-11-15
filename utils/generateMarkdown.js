@@ -1,41 +1,39 @@
-// function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
-  if (license !== "none") {
-return `![Github license](https://img.shields.io/badge/license-${license}-blue.svg)`
-}
-return ";"
-}
-
-// function to generate markdown for README
+//function to generatereadme
 function generateMarkdown(data) {
   return `
 # ${data.title}
-## GitHub Account
-${data.username}
-## description
+
+## Description
 ${data.description}
-## license
-${data.license}
 
-## table of contents
-* [Installation](#Installation)
-* [Usage Information](#usage)
-* [Testing](#testing)
-* [Contirbution](#contritbution)
-* [Questions](#questions)
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-### Installation
+## Installation
 ${data.installation}
-### Usage
-${data.usage}
-### Testing
-${data.testing}
-### Contribution
-${data.contribution}
-### Questions
-Please email me with any questions ${data.email}
 
+## Usage
+${data.usage}
+
+## License
+This project is licensed under the ${data.license} license.
+
+## Contributing
+${data.contribution}
+
+## Tests
+${data.testing}
+
+## Questions
+For additional questions, you can reach me through:
+- GitHub: [${data.username}](https://github.com/${data.username})
+- Email: ${data.email}
 `;
 }
+
 module.exports = generateMarkdown;
